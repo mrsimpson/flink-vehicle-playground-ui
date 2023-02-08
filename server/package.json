@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "description": "A BFF for the app",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path ../.gitignore"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "kafka-node": "5.0.0",
+    "socket.io": "4.6.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.51.0",
+    "@typescript-eslint/parser": "5.51.0",
+    "eslint": "8.33.0"
+  }
+}

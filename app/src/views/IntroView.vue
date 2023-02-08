@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { CalculatorOutline as CalculatorIcon } from "@vicons/ionicons5";
 </script>
 
 <template>
