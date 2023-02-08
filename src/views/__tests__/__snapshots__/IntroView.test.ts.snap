@@ -1,0 +1,13 @@
+// Vitest Snapshot v1
+
+exports[`IntroView > renders as expected 1`] = `
+<card-stub
+  bordered="false"
+  class="intro"
+  closable="false"
+  embedded="false"
+  hoverable="false"
+  segmented="false"
+  size="medium"
+/>
+`;
