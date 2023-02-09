@@ -13,6 +13,6 @@ module.exports = {
   ],
   rules: {
     "max-len": ["warn", { code: 100 }],
-    "no-undef": ["off"] // TS to ensure that, see https://github.com/antfu/unplugin-auto-import#eslint
+    "no-undef": ["off"]
   }
 }

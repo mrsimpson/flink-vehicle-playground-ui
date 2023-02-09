@@ -4,18 +4,27 @@
   "description": "A BFF for the app",
   "main": "index.ts",
   "scripts": {
+    "dev": "DEBUG=* ts-node-dev --respawn --transpile-only server.ts",
+    "start": "npm run build && node dist/server.js",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path ../.gitignore"
   },
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
+    "cors": "2.8.5",
+    "dotenv-flow": "3.2.0",
+    "express": "4.18.2",
     "kafka-node": "5.0.0",
     "socket.io": "4.6.0"
   },
   "devDependencies": {
+    "@types/express": "4.17.17",
     "@typescript-eslint/eslint-plugin": "5.51.0",
     "@typescript-eslint/parser": "5.51.0",
-    "eslint": "8.33.0"
+    "eslint": "8.33.0",
+    "ts-node": "10.9.1",
+    "ts-node-dev": "2.0.0"
   }
 }
