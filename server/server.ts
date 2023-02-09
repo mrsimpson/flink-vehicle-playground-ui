@@ -38,7 +38,7 @@ io.on('connection', (socket) => {
   });
 
   consumer.on('message', (message) => {
-    console.log(`⏭️ ${message.value}`);
+    // console.log(`⏭️ ${message.value}`);
     socket.emit(message.topic, JSON.parse(message.value.toString()));
   });
 });

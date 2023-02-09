@@ -1,14 +1,25 @@
 <script setup lang="ts">
 import { socket } from "@/lib/socket-client";
 import { CENTER } from "@/lib/Frankfurt";
-import type {Location} from '@/types/Location'
-import {coordinateFromLocation} from '@/lib/geoHelpers'
+import type { Trip } from "@/types/Trip";
+import VehicleEventStatistics from "./VehicleEventStatistics.vue";
 
-socket.on("event", (message) => {
-    const location: Location = message.location;
-    if(location){
-        displayEvents.value.push(coordinateFromLocation(message.location))
+socket.on("trips", (message) => {
+  const trip: Trip = message.f1;
+  if (trip.vehicleId) {
+    activeTrips.value = activeTrips.value.set(trip.vehicleId, trip);
+    if (trip.end) {
+      setTimeout(() => activeTrips.value.delete(trip.vehicleId), 2000);
     }
+  }
+});
+
+socket.on("rentals", (message) => {
+  rentals.value = message.f1;
+});
+
+socket.on("returns", (message) => {
+  returns.value = message.f1;
 });
 
 const center = ref(CENTER);
@@ -16,16 +27,14 @@ const projection = ref("EPSG:3857");
 const zoom = ref(13);
 const rotation = ref(0);
 const view = ref(null);
-const displayEvents = ref([CENTER])
-
-const radius = ref(10)
-        const strokeWidth = ref(4)
-        const strokeColor = ref('red')
-        const fillColor = ref('white')
+const activeTrips = ref(new Map<string, Trip>());
+const rentals = ref(0);
+const returns = ref(0);
 </script>
 
 <template>
   <NCard>
+    <VehicleEventStatistics :rentals="rentals" :returns="returns" />
     <ol-map
       :loadTilesWhileAnimating="true"
       :loadTilesWhileInteracting="true"
@@ -46,20 +55,11 @@ const radius = ref(10)
 
       <ol-vector-layer>
         <ol-source-vector>
-          <ol-feature v-for="event in displayEvents">
-            <ol-geom-point
-              :coordinates="event"
-            ></ol-geom-point>
-            <ol-style>
-              <ol-style-circle :radius="radius">
-                <ol-style-fill :color="fillColor"></ol-style-fill>
-                <ol-style-stroke
-                  :color="strokeColor"
-                  :width="strokeWidth"
-                ></ol-style-stroke>
-              </ol-style-circle>
-            </ol-style>
-          </ol-feature>
+          <TripFeature
+            v-for="[vehicleId, trip] in activeTrips"
+            :key="vehicleId"
+            :trip="trip"
+          />
         </ol-source-vector>
       </ol-vector-layer>
     </ol-map>

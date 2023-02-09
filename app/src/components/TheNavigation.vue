@@ -3,7 +3,7 @@ import type { MenuOption } from "naive-ui";
 import { RouterLink, useRoute } from "vue-router";
 import renderIcon from '@/lib/renderIcon'
 
-import { AirplaneOutline as Logo, InformationCircleOutline as Intro } from "@vicons/ionicons5";
+import { BicycleOutline as Logo, InformationCircleOutline as Intro } from "@vicons/ionicons5";
 
 const route = useRoute()
 const activeKey = ref<string | undefined>("")
@@ -33,7 +33,7 @@ const menuOptions: MenuOption[] = [
             name: 'main',
           }
         },
-        { default: () => 'Main' }
+        { default: () => 'Live Cockpit' }
       ),
     key: 'main',
     icon: renderIcon(Logo)
