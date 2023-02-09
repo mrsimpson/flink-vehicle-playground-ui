@@ -16,9 +16,11 @@
     "@vicons/ionicons5": "^0.12.0",
     "@vueuse/core": "9.12.0",
     "debounce": "1.2.1",
+    "ol": "7.2.2",
     "socket.io-client": "4.6.0",
     "vue": "^3.2.47",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vue3-openlayers": "0.1.71"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",

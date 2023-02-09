@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    CurrentEventsMap: typeof import('./src/components/CurrentEventsMap.vue')['default']
     ExplanationText: typeof import('./src/components/ExplanationText.vue')['default']
     MatomoOptOut: typeof import('./src/components/MatomoOptOut.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
