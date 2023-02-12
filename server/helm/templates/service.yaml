@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: bff-service
+  labels:
+    app: bff
+spec:
+  selector:
+    app: bff
+  ports:
+    - name: http
+      port: 4000
+      targetPort: 4000
+  type: ClusterIP

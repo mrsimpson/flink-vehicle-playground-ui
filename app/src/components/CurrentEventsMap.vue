@@ -6,7 +6,7 @@ import VehicleEventStatistics from "./VehicleEventStatistics.vue";
 
 socket.on("trips", (message) => {
   const trip: Trip = message.f1;
-  if (trip.vehicleId) {
+  if (trip && trip.vehicleId) {
     activeTrips.value = activeTrips.value.set(trip.vehicleId, trip);
     if (trip.end) {
       setTimeout(() => activeTrips.value.delete(trip.vehicleId), 2000);

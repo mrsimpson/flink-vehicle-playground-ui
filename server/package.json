@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "dev": "DEBUG=* ts-node-dev --respawn --transpile-only server.ts",
-    "start": "npm run build && node dist/server.js",
+    "start": "node dist/server.js",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path ../.gitignore"

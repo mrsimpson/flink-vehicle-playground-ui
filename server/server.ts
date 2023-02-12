@@ -10,7 +10,7 @@ const kafkaClient = new KafkaClient({ kafkaHost: process.env.KAFKA || 'localhost
 
 // a consumer represent a PubSub to a topic
 const consumer = new Consumer(kafkaClient, [
-  { topic: 'event' }, 
+  // { topic: 'event' }, 
   { topic: 'rentals' },
   { topic: 'returns' },
   { topic: 'trips' },

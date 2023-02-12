@@ -11,10 +11,10 @@ defineProps({
   },
 });
 
-const radius = ref(4);
-const strokeWidth = ref(6);
-const fillColor = ref("white");
-const strokeColor = ref("red");
+const radius = ref(2);
+const strokeWidth = ref(5);
+const color2 = ref("green");
+const color1 = ref("blue");
 
 function tripCoordinates(trip: Trip): Coordinate[] {
   const wpCoordinates =
@@ -32,9 +32,9 @@ function tripCoordinates(trip: Trip): Coordinate[] {
       ></ol-geom-point>
       <ol-style>
         <ol-style-circle :radius="radius">
-          <ol-style-fill :color="fillColor"></ol-style-fill>
+          <ol-style-fill :color="color2"></ol-style-fill>
           <ol-style-stroke
-            :color="strokeColor"
+            :color="color1"
             :width="strokeWidth"
           ></ol-style-stroke>
         </ol-style-circle>
@@ -46,7 +46,7 @@ function tripCoordinates(trip: Trip): Coordinate[] {
       />
       <ol-style>
         <ol-style-stroke
-          :color="strokeColor"
+          :color="color1"
           :width="strokeWidth"
         ></ol-style-stroke>
       </ol-style>
@@ -57,9 +57,9 @@ function tripCoordinates(trip: Trip): Coordinate[] {
         ></ol-geom-point>
         <ol-style>
           <ol-style-circle :radius="radius">
-            <ol-style-fill :color="strokeColor"></ol-style-fill>
+            <ol-style-fill :color="color1"></ol-style-fill>
             <ol-style-stroke
-              :color="strokeColor"
+              :color="color1"
               :width="strokeWidth"
             ></ol-style-stroke>
           </ol-style-circle>
