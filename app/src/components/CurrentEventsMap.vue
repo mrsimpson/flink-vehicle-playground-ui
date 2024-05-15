@@ -23,7 +23,6 @@ socket.on("returns", (message) => {
 });
 
 const center = ref(CENTER);
-const projection = ref("EPSG:3857");
 const zoom = ref(13);
 const rotation = ref(0);
 const view = ref(null);
@@ -46,7 +45,6 @@ const returns = ref(0);
         :center="center"
         :rotation="rotation"
         :zoom="zoom"
-        :projection="projection"
       />
 
       <ol-tile-layer>
